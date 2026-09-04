@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ブランディング・マーケティングコンサルタント ― 理念を、価値に。価値を、成果に。</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111111;--paper:#FFFFFF;--paper-soft:#F7F6F3;
+    --coral:#E8674F;--coral-deep:#C24A34;
+    --mustard:#EFC33B;
+    --periwinkle:#AEB8EC;
+    --line:#EAE8E3;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Zen Kaku Gothic New', sans-serif;font-weight:500;line-height:1.85;overflow-wrap:break-word;}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 48px;}
+  a{color:inherit;text-decoration:none;}
+
+  /* ---------- Header ---------- */
+  header.site{padding:32px 0;}
+  .site-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+  .brand{display:flex;align-items:center;gap:14px;font-weight:900;font-size:1.05rem;}
+  .brand .mark{width:38px;height:38px;flex-shrink:0;}
+  nav.site-nav{display:flex;gap:36px;flex-wrap:wrap;align-items:center;}
+  nav.site-nav a{font-size:.88rem;font-weight:700;}
+  nav.site-nav a:hover{color:var(--coral-deep);}
+  .cta-btn{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:#fff;padding:15px 26px;font-size:.86rem;font-weight:700;border-radius:2px;}
+  .cta-btn .arrow{width:28px;height:28px;border:1px solid rgba(255,255,255,.4);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:.95rem;}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:70px 0 60px;}
+  .hero-grid{display:grid;grid-template-columns:1fr .92fr;gap:60px;align-items:center;}
+  .hero-icon{width:52px;height:52px;margin-bottom:20px;}
+  .hero h1{font-size:clamp(2.3rem, 1.2rem + 3.6vw, 3.9rem);font-weight:900;line-height:1.28;margin:0 0 6px;letter-spacing:-.01em;}
+  .hero h1 .nowrap{white-space:nowrap;}
+  .hero .lead{font-size:1.05rem;max-width:42ch;margin:36px 0 32px;}
+  .hero .who{font-size:.84rem;color:#777;margin-bottom:34px;line-height:1.7;}
+
+  .card-stack{position:relative;height:480px;}
+  .stack-card{position:absolute;width:76%;border-radius:6px;padding:30px 32px;box-shadow:0 22px 40px rgba(0,0,0,.16);display:flex;flex-direction:column;justify-content:space-between;transition:top .6s cubic-bezier(.22,.68,0,1.01), left .6s cubic-bezier(.22,.68,0,1.01), transform .6s cubic-bezier(.22,.68,0,1.01), opacity .5s ease, background .5s ease, color .5s ease;}
+  .stack-card .no{font-size:.84rem;font-weight:700;opacity:.7;}
+  .stack-card h3{font-size:1.7rem;font-weight:900;margin:0 0 6px;line-height:1.3;}
+  .stack-card p{font-size:.88rem;font-weight:700;margin:0;opacity:.85;}
+
+  .stack-card.pos-front{top:0;left:0;z-index:3;transform:rotate(-2deg);height:220px;}
+  .stack-card.pos-mid{top:150px;left:44px;z-index:2;transform:rotate(2.5deg);height:240px;}
+  .stack-card.pos-back{top:300px;left:4px;z-index:1;transform:rotate(-4deg);height:220px;opacity:.9;}
+  .stack-card.pos-enter{top:420px;left:20px;z-index:0;transform:rotate(3deg);opacity:0;height:220px;}
+
+  @media(max-width:960px){.hero-grid{grid-template-columns:1fr;} .card-stack{height:600px;margin-top:16px;}}
+  @media(prefers-reduced-motion:reduce){.stack-card{transition:none !important;}}
+
+  .headline-thumb{display:inline-block;width:1em;height:1em;vertical-align:middle;margin:0 .12em;border-radius:3px;transition:background .5s ease;position:relative;top:-.05em;}
+
+  /* ---------- Intro ---------- */
+  .intro{padding:40px 0 90px;border-bottom:1px solid var(--line);}
+  .intro p{max-width:64ch;font-size:1.15rem;font-weight:500;margin:0 0 30px;}
+  .intro-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border:1px solid var(--line);max-width:900px;}
+  .intro-list li{background:#fff;padding:22px 26px;font-size:.94rem;font-weight:700;}
+  @media(max-width:820px){.intro-list{grid-template-columns:1fr;}}
+
+  /* ---------- Structure band (big, few elements) ---------- */
+  .structure{padding:90px 0;}
+  .structure-head{margin-bottom:56px;}
+  .structure-head .eyebrow{font-size:.86rem;font-weight:700;color:var(--coral-deep);margin-bottom:14px;}
+  .structure-head h2{font-size:clamp(1.8rem,1.3rem+1.6vw,2.6rem);font-weight:900;margin:0;max-width:16ch;line-height:1.35;}
+
+  .band{display:grid;grid-template-columns:120px 1fr;gap:0;border-top:1px solid var(--ink);align-items:stretch;}
+  .band:last-of-type{border-bottom:1px solid var(--ink);}
+  .band .no{font-size:2.4rem;font-weight:900;padding:34px 0;color:#ccc;}
+  .band .body{padding:34px 0;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;}
+  .band h3{font-size:1.5rem;font-weight:900;margin:0 0 8px;}
+  .band p{font-size:.9rem;color:#666;margin:0;max-width:48ch;}
+  .band .scope{font-size:.78rem;font-weight:700;padding:8px 16px;border-radius:20px;white-space:nowrap;}
+  .band.narrow .scope{background:var(--paper-soft);}
+  .band.wide .scope{background:var(--ink);color:#fff;}
+
+  @media(max-width:820px){
+    .band{grid-template-columns:60px 1fr;}
+    .band .body{grid-template-columns:1fr;gap:12px;align-items:start;}
+  }
+
+  /* ---------- Execution detail ---------- */
+  .exec-detail{padding:10px 0 90px;}
+  .exec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+  .exec-cat{background:#fff;padding:34px 36px;}
+  .exec-cat .cat-name{font-size:1.05rem;font-weight:900;margin:0 0 18px;}
+  .exec-cat ul{list-style:none;margin:0;padding:0;}
+  .exec-cat li{font-size:.9rem;padding:9px 0;border-top:1px solid var(--line);}
+  .exec-cat li:first-child{border-top:none;}
+  .exec-cat li a{font-weight:700;color:var(--coral-deep);}
+  .exec-cat li a:hover{text-decoration:underline;}
+  @media(max-width:820px){.exec-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Cycle ---------- */
+  .cycle{padding:20px 0 90px;}
+  .cycle h2{font-size:1.7rem;font-weight:900;margin:0 0 12px;}
+  .cycle .sub{font-size:.92rem;color:#666;margin:0 0 36px;max-width:56ch;}
+  .cycle-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+  .cycle-step{background:#fff;padding:30px 26px;}
+  .cycle-step .no{font-weight:900;font-size:1.5rem;display:block;margin-bottom:14px;color:var(--coral-deep);}
+  .cycle-step h4{font-size:1.05rem;font-weight:900;margin:0 0 8px;}
+  .cycle-step p{font-size:.84rem;color:#666;margin:0;}
+  @media(max-width:820px){.cycle-row{grid-template-columns:1fr 1fr;}}
+
+  /* ---------- About ---------- */
+  .about{padding:20px 0 100px;}
+  .about-box{background:var(--ink);color:#fff;border-radius:8px;padding:64px;display:grid;grid-template-columns:1fr 1.4fr;gap:56px;}
+  .about-box .eyebrow{font-size:.84rem;font-weight:700;color:var(--periwinkle);margin:0 0 16px;}
+  .about-box h2{font-size:clamp(1.6rem,1.2rem+1vw,2rem);font-weight:900;margin:0;line-height:1.5;}
+  .about-box p{font-size:.96rem;color:#ccc;max-width:54ch;margin:0 0 18px;}
+  .about-box a.link{font-size:.9rem;font-weight:700;color:#fff;border-bottom:1px solid var(--coral);}
+  @media(max-width:820px){.about-box{grid-template-columns:1fr;padding:36px 28px;}}
+
+  footer{border-top:1px solid var(--line);padding:34px 0;font-size:.84rem;color:#999;}
+</style>
+</head>
+<body>
+
+<header class="site wrap">
+  <div class="site-row">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 40 40" fill="none">
+        <path d="M20 2 L36 12 L28 18 L20 12 L12 18 L4 12 Z" fill="#111"/>
+        <path d="M20 12 L28 18 L20 24 L12 18 Z" fill="#E8674F"/>
+        <path d="M20 24 L28 30 L20 38 L12 30 Z" fill="#111" opacity=".85"/>
+      </svg>
+      ブランディング・マーケティングコンサルタント
+    </a>
+    <nav class="site-nav">
+      <a href="#structure">全体構造</a>
+      <a href="#execution">施策</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-icon">
+        <svg viewBox="0 0 60 60" fill="none">
+          <path d="M30 4 L54 18 L30 32 L6 18 Z" fill="none" stroke="#AEB8EC" stroke-width="3"/>
+          <path d="M30 32 L54 46 L30 60 L6 46 Z" fill="none" stroke="#EFC33B" stroke-width="3"/>
+          <line x1="6" y1="18" x2="6" y2="46" stroke="#111" stroke-width="3"/>
+          <line x1="54" y1="18" x2="54" y2="46" stroke="#111" stroke-width="3"/>
+          <line x1="30" y1="32" x2="30" y2="60" stroke="#E8674F" stroke-width="3"/>
+        </svg>
+      </div>
+      <h1><span class="headline-thumb" id="headThumb" style="background:#AEB8EC;"></span>全社価値を、<br><span class="nowrap">マーケティングに。</span></h1>
+      <p class="lead">
+        理念は狭く鋭く、実行は広く展開する。パーパスからマーケティング施策の細部までを、一本の線でつなぐ実務ノート。
+      </p>
+      <div class="who">ブランディング歴20年以上／支援企業100社超<br>現在は自社マーケティング責任者としても実務中</div>
+      <a class="cta-btn" href="#structure">全体構造を見る<span class="arrow">↗</span></a>
+    </div>
+
+    <div class="card-stack" id="cardStack">
+      <div class="stack-card pos-front" id="cardA"><span class="no">01</span><div><h3>戦略層</h3><p>パーパスからマーケティング戦略まで</p></div></div>
+      <div class="stack-card pos-mid" id="cardB"><span class="no">02</span><div><h3>施策</h3><p>広告・SEO・AIO・展示会・セールス</p></div></div>
+      <div class="stack-card pos-back" id="cardC"><span class="no">03</span><div><h3>運用</h3><p>可視化 → 分析 → 改善 → 再実装</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="intro wrap">
+  <p>
+    理念は狭く絞り込むべきもの、施策は広く展開すべきもの。この非対称性を無視すると、現場ではこうなる。
+  </p>
+  <ul class="intro-list">
+    <li>MVVを立てたが、売りにはつながらない</li>
+    <li>売れるものと、理想が違う</li>
+    <li>社長の想う価値が社員に伝わらず、物売りになる</li>
+    <li>戦略を立てたが、社員行動にはつながらない</li>
+  </ul>
+</section>
+
+<section class="structure wrap" id="structure">
+  <div class="structure-head">
+    <div class="eyebrow">Structure</div>
+    <h2>狭い戦略、広い実行</h2>
+  </div>
+
+  <div class="band narrow">
+    <div class="no">01</div>
+    <div class="body">
+      <div><h3>パーパス・理念・MVV</h3><p>会社の存在意義。すべての判断の起点。</p></div>
+      <span class="scope">戦略層</span>
+    </div>
+  </div>
+  <div class="band narrow">
+    <div class="no">02</div>
+    <div class="body">
+      <div><h3>製品・ソリューションのコンセプト</h3><p>理念が、売り物としてどう翻訳されているか。</p></div>
+      <span class="scope">戦略層</span>
+    </div>
+  </div>
+  <div class="band narrow">
+    <div class="no">03</div>
+    <div class="body">
+      <div><h3>ペルソナ・CJM・CEP・USP</h3><p>誰の、どの購買シーンで、何が独自の理由になるか。</p></div>
+      <span class="scope">戦略層</span>
+    </div>
+  </div>
+  <div class="band narrow">
+    <div class="no">04</div>
+    <div class="body">
+      <div><h3>マーケティング戦略</h3><p>戦略層と実行層をつなぐ、最後の絞り込み。</p></div>
+      <span class="scope">戦略層</span>
+    </div>
+  </div>
+  <div class="band wide">
+    <div class="no">05</div>
+    <div class="body">
+      <div><h3>施策</h3><p>情報発信からクロージングまで、数十のチャネルにわたる実行。</p></div>
+      <span class="scope">実行層</span>
+    </div>
+  </div>
+  <div class="band wide">
+    <div class="no">06</div>
+    <div class="body">
+      <div><h3>運用</h3><p>KGI／KPIに基づき、実施・分析・改善を切れ目なく回す。</p></div>
+      <span class="scope">実行層</span>
+    </div>
+  </div>
+</section>
+
+<section class="exec-detail wrap" id="execution">
+  <div class="structure-head" style="margin-bottom:36px;">
+    <div class="eyebrow">05 ／ 施策の内訳</div>
+    <h2 style="max-width:none;">マーケティング施策の全体像</h2>
+  </div>
+  <div class="exec-grid">
+    <div class="exec-cat">
+      <p class="cat-name">情報発信・認知</p>
+      <ul>
+        <li>展示会・登壇・NW</li><li>招待状／チラシ・DM</li><li>プロモーション動画</li>
+        <li>ブログ</li><li>オンラインセミナー</li><li>オンラインカタログ</li>
+      </ul>
+    </div>
+    <div class="exec-cat">
+      <p class="cat-name">リード獲得</p>
+      <ul>
+        <li>LP（申込）</li><li>デジタル広告（リスティング・DSP）</li><li>SEO対策</li>
+        <li><a href="articles/ai-citation-rate.html">LLMO・AIO ↗</a></li>
+        <li>ウェブサイト</li><li>新規見込みリード管理（MA・CMS）</li>
+      </ul>
+    </div>
+    <div class="exec-cat">
+      <p class="cat-name">ナーチャリング</p>
+      <ul>
+        <li>メール配信</li><li>メルマガ配信</li><li>顧客分析（GA等）</li>
+      </ul>
+    </div>
+    <div class="exec-cat">
+      <p class="cat-name">セールス・クロージング</p>
+      <ul>
+        <li>インサイドセールス</li><li>オンライン商談</li><li>カタログ（セールス）</li><li>（既存）案件管理</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cycle wrap">
+  <h2>仮説は上から、証明は下から</h2>
+  <p class="sub">戦略層は「上位が下位を生む」という因果仮説で設計するが、実際の証明は実行層のデータから遡って行うのが実務的である。</p>
+  <div class="cycle-row">
+    <div class="cycle-step"><span class="no">01</span><h4>可視化</h4><p>データ収集</p></div>
+    <div class="cycle-step"><span class="no">02</span><h4>分析</h4><p>因果の検証</p></div>
+    <div class="cycle-step"><span class="no">03</span><h4>改善</h4><p>施策・実行</p></div>
+    <div class="cycle-step"><span class="no">04</span><h4>再実装</h4><p>戦略の見直し</p></div>
+  </div>
+</section>
+
+<section class="about wrap" id="about">
+  <div class="about-box">
+    <div>
+      <p class="eyebrow">About</p>
+      <h2>ブランディング歴20年、100社超の実務ノート</h2>
+    </div>
+    <div>
+      <p>
+        約20年、100社を超える企業のブランディング・パーパス策定プロジェクトに、プロデューサーの立場で携わってきました。ロゴやコピーを自らの手で生み出すのではなく、経営者の想いを正しく汲み取り、クリエイティブチームと社内外のステークホルダーの間に立ちながら、理念が実際の事業成果につながるまでプロジェクト全体を推進することが専門です。
+      </p>
+      <p>
+        現在は自身が会社のマーケティング担当も務めるようになり、提供者としてのノウハウと、当事者としての試行錯誤の両方を、このノートで発信しています。
+      </p>
+      <p>
+        本ノートで示す構造は、戦略論の古典的な階層と、実務で扱う施策の広がりを接続する試みです。断定的な結論ではなく、検証途中の考え方として読んでください。
+      </p>
+      <a class="link" href="https://note.com/huwahuwawaku119" target="_blank" rel="noopener">note：ブランディング・マーケティングコンサルタント ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">ブランディング・マーケティングコンサルタント ― 理念から市場成果までをつなぐ実務ノート。</footer>
+
+<script>
+(function(){
+  var deck = [
+    {no:'01', title:'パーパス・理念・MVV', desc:'会社の存在意義。すべての判断の起点。', bg:'#AEB8EC', fg:'#1c2340'},
+    {no:'02', title:'製品コンセプト', desc:'理念が、売り物としてどう翻訳されているか。', bg:'#EFC33B', fg:'#3a2c04'},
+    {no:'03', title:'ペルソナ・CJM・CEP・USP', desc:'誰の、どの購買シーンで独自の理由になるか。', bg:'#E8674F', fg:'#fff'},
+    {no:'04', title:'マーケティング戦略', desc:'戦略層と実行層をつなぐ、最後の絞り込み。', bg:'#AEB8EC', fg:'#1c2340'},
+    {no:'05', title:'施策', desc:'広告・SEO・AIO・展示会・セールス', bg:'#EFC33B', fg:'#3a2c04'},
+    {no:'06', title:'運用', desc:'可視化 → 分析 → 改善 → 再実装', bg:'#E8674F', fg:'#fff'}
+  ];
+  var cards = [document.getElementById('cardA'), document.getElementById('cardB'), document.getElementById('cardC')];
+  var thumb = document.getElementById('headThumb');
+  var head = 0; // index of the item currently on the front card
+
+  function paint(el, item){
+    el.querySelector('.no').textContent = item.no;
+    el.querySelector('h3').textContent = item.title;
+    el.querySelector('p').textContent = item.desc;
+    el.style.background = item.bg;
+    el.style.color = item.fg;
+  }
+
+  function layout(){
+    // front, mid, back show head, head+1, head+2
+    paint(cards[0], deck[head % deck.length]);
+    paint(cards[1], deck[(head+1) % deck.length]);
+    paint(cards[2], deck[(head+2) % deck.length]);
+    cards[0].className = 'stack-card pos-front';
+    cards[1].className = 'stack-card pos-mid';
+    cards[2].className = 'stack-card pos-back';
+    if(thumb) thumb.style.background = deck[head % deck.length].bg;
+  }
+
+  function advance(){
+    // fade out front & mid content briefly, then repaint with next items
+    cards[0].style.opacity = '0';
+    cards[1].style.opacity = '0';
+
+    var nextItem = deck[(head+3) % deck.length];
+    paint(cards[2], nextItem);
+    cards[2].className = 'stack-card pos-enter';
+    void cards[2].offsetWidth;
+
+    head = (head + 1) % deck.length;
+
+    setTimeout(function(){
+      paint(cards[0], deck[head % deck.length]);
+      paint(cards[1], deck[(head+1) % deck.length]);
+      cards[0].className = 'stack-card pos-front';
+      cards[1].className = 'stack-card pos-mid';
+      cards[2].className = 'stack-card pos-back';
+      cards[0].style.opacity = '1';
+      cards[1].style.opacity = '1';
+      if(thumb) thumb.style.background = deck[head % deck.length].bg;
+    }, 260);
+  }
+
+  layout();
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){
+    setInterval(advance, 4000);
+  }
+})();
+</script>
+
+</body>
+</html>
